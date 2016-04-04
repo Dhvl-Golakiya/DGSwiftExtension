@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'DGSwiftExtension_Example', :exclusive => true do
+  pod 'DGSwiftExtension', :path => '../'
+end
+
+target 'DGSwiftExtension_Tests', :exclusive => true do
+  pod 'DGSwiftExtension', :path => '../'
+
+  
+end
