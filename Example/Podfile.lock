@@ -1,0 +1,14 @@
+PODS:
+  - DGSwiftExtension (0.1.0)
+
+DEPENDENCIES:
+  - DGSwiftExtension (from `../`)
+
+EXTERNAL SOURCES:
+  DGSwiftExtension:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DGSwiftExtension: a9295060ada55412674a25358d5bdf5150c30ece
+
+COCOAPODS: 0.39.0
