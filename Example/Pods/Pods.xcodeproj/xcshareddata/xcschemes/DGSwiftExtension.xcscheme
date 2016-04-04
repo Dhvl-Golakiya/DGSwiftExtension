@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8F878EE89AE8867461D304E8'
+               BlueprintIdentifier = '111F0FE716957B13FE30587D'
                BlueprintName = 'DGSwiftExtension'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'DGSwiftExtension.framework'>

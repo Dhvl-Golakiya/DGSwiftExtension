@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  DGSwiftExtension: a9295060ada55412674a25358d5bdf5150c30ece
+  DGSwiftExtension: ba88377f07d41c97aaa8db2c7b2ae0694660e245
 
 COCOAPODS: 0.39.0
