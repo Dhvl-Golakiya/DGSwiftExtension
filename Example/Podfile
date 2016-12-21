@@ -1,12 +1,17 @@
-source 'https://github.com/CocoaPods/Specs.git'
-use_frameworks!
+platform :ios, '9.0'
 
-target 'DGSwiftExtension_Example', :exclusive => true do
-  pod 'DGSwiftExtension', :path => '../'
+
+target 'DGSwiftExtension_Example' do
+    use_frameworks!
+
+  pod 'DGSwiftExtension', :path => '/Users/dhvlsimac/Documents/Projects//iOS/DGSwiftExtension'
+  
 end
 
-target 'DGSwiftExtension_Tests', :exclusive => true do
-  pod 'DGSwiftExtension', :path => '../'
+target 'DGSwiftExtension_Tests' do
+    use_frameworks!
+
+  pod 'DGSwiftExtension', :path => '/Users/dhvlsimac/Documents/Projects//iOS/DGSwiftExtension'
 
   
 end

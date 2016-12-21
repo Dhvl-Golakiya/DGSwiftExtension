@@ -30,7 +30,7 @@ extension Data {
     
     //  Convert NSData to String
     public var toJsonString : String! {
-        return ""
+        return String.init(data: self, encoding: .utf8)
     }
 }
 

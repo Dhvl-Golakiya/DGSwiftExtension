@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DGSwiftExtension"
-  s.version          = "1.0.0"
+  s.version          = "1.0.2"
   s.summary          = "Swift extensions for regular use of classes and views"
   s.homepage         = "https://github.com/Dhvl-Golakiya/DGSwiftExtension"
   s.license          = 'MIT'
@@ -17,10 +17,10 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/Dhvl_Golakiya'
   s.platform     = :ios, '9.0'
   s.requires_arc = true
-  s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'DGSwiftExtension' => ['Pod/Assets/*.png']
-  }
+s.source_files = 'Pod/Classes/**/*'
+# s.resource_bundles = {
+#   'DGSwiftExtension' => ['Pod/Assets/*.png']
+# }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
