@@ -12,19 +12,19 @@ import UIKit
 extension NSDictionary {
     
     //  Convert NSDictionary to NSData
-    public var toNSData : NSData! {
+    public var toNSData : Data! {
         do {
-            return try NSJSONSerialization.dataWithJSONObject(self, options: .PrettyPrinted)          // success ...
+            return try JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)          // success ...
         } catch {
             // failure
             print("Fetch failed: \((error as NSError).localizedDescription)")
         }
-        return NSData()
+        return Data()
     }
     
     //  Check key is exist in NSDictionary or not
-    public func has(key: Key) -> Bool {
-        return objectForKey(key) != nil
+    public func has(_ key: Key) -> Bool {
+        return object(forKey: key) != nil
     }
 
 }

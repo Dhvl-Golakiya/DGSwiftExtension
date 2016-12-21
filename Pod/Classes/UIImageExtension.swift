@@ -12,32 +12,32 @@ import UIKit
 extension UIImage {
     
     //  Get IMage with background color
-    public func colorizeImage(withColor: UIColor) -> UIImage {
+    public func colorizeImage(_ withColor: UIColor) -> UIImage {
         
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         let context = UIGraphicsGetCurrentContext()
-        let area = CGRectMake(0, 0, size.width, size.height)
-        CGContextScaleCTM(context, 1, -1)
-        CGContextTranslateCTM(context, 0, -area.size.height)
-        CGContextSaveGState(context);
-        CGContextClipToMask(context, area, CGImage);
+        let area = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        context?.scaleBy(x: 1, y: -1)
+        context?.translateBy(x: 0, y: -area.size.height)
+        context?.saveGState();
+        context?.clip(to: area, mask: cgImage!);
         withColor.set()
-        CGContextFillRect(context, area);
-        CGContextRestoreGState(context);
-        CGContextSetBlendMode(context, .Multiply);
-        CGContextDrawImage(context, area, CGImage);
+        context?.fill(area);
+        context?.restoreGState();
+        context?.setBlendMode(.multiply);
+        context?.draw(cgImage!, in: area);
         let colorizedImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        return colorizedImage;
+        return colorizedImage!;
     }
     
     //  Tinted image
     public func tintedImage() -> UIImage {
-        return self.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        return self.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
     }
     
     //  Crop image
-   public  func croppedImage(bound: CGRect) -> UIImage? {
+   public  func croppedImage(_ bound: CGRect) -> UIImage? {
         guard self.size.width > bound.origin.x else {
             print("Your cropping bound X coordinate is larger than the image width")
             return nil
@@ -46,16 +46,16 @@ extension UIImage {
             print("Your cropping bound Y coordinate is larger than the image height")
             return nil
         }
-        let scaledBounds: CGRect = CGRectMake(bound.origin.x * self.scale, bound.origin.y * self.scale, bound.size.width * self.scale, bound.size.height * self.scale)
-        let imageRef = CGImageCreateWithImageInRect(self.CGImage, scaledBounds)
-        let croppedImage: UIImage = UIImage(CGImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.Up)
+        let scaledBounds: CGRect = CGRect(x: bound.origin.x * self.scale, y: bound.origin.y * self.scale, width: bound.size.width * self.scale, height: bound.size.height * self.scale)
+        let imageRef = self.cgImage?.cropping(to: scaledBounds)
+        let croppedImage: UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
         return croppedImage
     }
     
     //  Rotate image with 90 degree
    public  func rotateImageToNighntyDegree() -> UIImage {
-        let image =  UIImage(CGImage: self.CGImage!, scale:1, orientation: UIImageOrientation.LeftMirrored)
-        return UIImage(CGImage: image.CGImage!, scale:1, orientation: UIImageOrientation.LeftMirrored)
+        let image =  UIImage(cgImage: self.cgImage!, scale:1, orientation: UIImageOrientation.leftMirrored)
+        return UIImage(cgImage: image.cgImage!, scale:1, orientation: UIImageOrientation.leftMirrored)
     }
     
 }

@@ -11,15 +11,15 @@ extension Array {
     public var toCommaString: String! {
         let stringArray = self as? NSArray
         if let stringArray = stringArray {
-            return stringArray.componentsJoinedByString(",")
+            return stringArray.componentsJoined(by: ",")
         }
         return ""
     }
 
     // Remove Specific object from Array
-   public  mutating func removeObject<U: Equatable>(object: U) {
+   public  mutating func removeObject<U: Equatable>(_ object: U) {
         var index: Int?
-        for (idx, objectToCompare) in self.enumerate() {
+        for (idx, objectToCompare) in self.enumerated() {
             if let to = objectToCompare as? U {
                 if object == to {
                     index = idx
@@ -28,12 +28,12 @@ extension Array {
         }
 
         if(index != nil) {
-            self.removeAtIndex(index!)
+            self.remove(at: index!)
         }
     }
 
     //  Chack Array contain specific object
-    public func containsObject<T:AnyObject>(item:T) -> Bool
+    public func containsObject<T:AnyObject>(_ item:T) -> Bool
     {
         for element in self
         {
@@ -46,7 +46,7 @@ extension Array {
     }
 
     //  Get Index of specific object
-    public func indexOfObject<T : Equatable>(x:T) -> Int? {
+    public func indexOfObject<T : Equatable>(_ x:T) -> Int? {
         for i in 0...self.count {
             if self[i] as! T == x {
                 return i
@@ -56,7 +56,7 @@ extension Array {
     }
 
     //  Gets the object at the specified index, if it exists.
-    public func get(index: Int) -> Element? {
+    public func get(_ index: Int) -> Element? {
         return index >= 0 && index < count ? self[index] : nil
     }
 }

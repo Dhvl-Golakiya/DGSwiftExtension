@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-extension NSData {
+extension Data {
     //  Convert NSData to NSDictionary
     public var toDictionary : NSDictionary! {
         let JSONData = self
         do {
-            let JSON = try NSJSONSerialization.JSONObjectWithData(JSONData, options:NSJSONReadingOptions(rawValue: 0))
+            let JSON = try JSONSerialization.jsonObject(with: JSONData, options:JSONSerialization.ReadingOptions(rawValue: 0))
             guard let dictioonary :NSDictionary = JSON as? NSDictionary else {
                 print("Not a Dictionary")
                 // put in function
@@ -29,16 +29,16 @@ extension NSData {
     }
     
     //  Convert NSData to String
-    public var toJsonString : NSString! {
-        return NSString(data: self, encoding: NSUTF8StringEncoding) as String?
+    public var toJsonString : String! {
+        return ""
     }
 }
 
 extension NSMutableData {
     
     //  Append String data to NSData
-    public func appendString(string: String) {
-        let data = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
-        appendData(data!)
+    public func appendString(_ string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
     }
 }

@@ -12,93 +12,93 @@ import UIKit
 extension UIButton {
     
     //  Apply corner radius
-    public func applyCornerRadius(mask : Bool) {
+    public func applyCornerRadius(_ mask : Bool) {
         self.layer.masksToBounds = mask
         self.layer.cornerRadius = self.frame.size.width/2
     }
     
     //  Set background color for state
-    public func setBackgroundColor(color: UIColor, forState: UIControlState) {
+    public func setBackgroundColor(_ color: UIColor, forState: UIControlState) {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
-        CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), color.CGColor)
-        CGContextFillRect(UIGraphicsGetCurrentContext(), CGRect(x: 0, y: 0, width: 1, height: 1))
+        UIGraphicsGetCurrentContext()?.setFillColor(color.cgColor)
+        UIGraphicsGetCurrentContext()?.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
         let colorImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        self.setBackgroundImage(colorImage, forState: forState)
+        self.setBackgroundImage(colorImage, for: forState)
     }
     
     //  Set title text for all state
-    public func textForAllState(titleText : String) {
-        self.setTitle(titleText, forState: .Normal)
-        self.setTitle(titleText, forState: .Selected)
-        self.setTitle(titleText, forState: .Highlighted)
-        self.setTitle(titleText, forState: .Disabled)
+    public func textForAllState(_ titleText : String) {
+        self.setTitle(titleText, for: UIControlState())
+        self.setTitle(titleText, for: .selected)
+        self.setTitle(titleText, for: .highlighted)
+        self.setTitle(titleText, for: .disabled)
     }
     
     //  Set title text for only normal state
-    public func textForNormal(titleText : String) {
-        self.setTitle(titleText, forState: .Normal)
+    public func textForNormal(_ titleText : String) {
+        self.setTitle(titleText, for: UIControlState())
     }
     
     //  Set title text for only selected state
-    public func textForSelected(titleText : String) {
-        self.setTitle(titleText, forState: .Selected)
+    public func textForSelected(_ titleText : String) {
+        self.setTitle(titleText, for: .selected)
     }
     
     //  Set title text for only highlight state
-    public func textForHighlighted(titleText : String) {
-        self.setTitle(titleText, forState: .Highlighted)
+    public func textForHighlighted(_ titleText : String) {
+        self.setTitle(titleText, for: .highlighted)
     }
     
     //  Set image for all state
-    public func imageForAllState(image : UIImage) {
-        self.setImage(image, forState: .Normal)
-        self.setImage(image, forState: .Selected)
-        self.setImage(image, forState: .Highlighted)
-        self.setImage(image, forState: .Disabled)
+    public func imageForAllState(_ image : UIImage) {
+        self.setImage(image, for: UIControlState())
+        self.setImage(image, for: .selected)
+        self.setImage(image, for: .highlighted)
+        self.setImage(image, for: .disabled)
     }
     
     //  Set image for only normal state
-    public func imageForNormal(image : UIImage) {
-        self.setImage(image, forState: .Normal)
+    public func imageForNormal(_ image : UIImage) {
+        self.setImage(image, for: UIControlState())
     }
     
     //  Set image for only selected state
-    public func imageForSelected(image : UIImage) {
-        self.setImage(image, forState: .Selected)
+    public func imageForSelected(_ image : UIImage) {
+        self.setImage(image, for: .selected)
     }
     
     //  Set image for only highlighted state
-    public func imageForHighlighted(image : UIImage) {
-        self.setImage(image, forState: .Highlighted)
+    public func imageForHighlighted(_ image : UIImage) {
+        self.setImage(image, for: .highlighted)
     }
     
     //  Set title color for all state
-    public func colorOfTitleLabelForAllState(color : UIColor) {
-        self.setTitleColor(color, forState: .Normal)
-        self.setTitleColor(color, forState: .Selected)
-        self.setTitleColor(color, forState: .Highlighted)
-        self.setTitleColor(color, forState: .Disabled)
+    public func colorOfTitleLabelForAllState(_ color : UIColor) {
+        self.setTitleColor(color, for: UIControlState())
+        self.setTitleColor(color, for: .selected)
+        self.setTitleColor(color, for: .highlighted)
+        self.setTitleColor(color, for: .disabled)
     }
     
     //  Set title color for normal state
-    public func colorOfTitleLabelForNormal(color : UIColor) {
-        self.setTitleColor(color, forState: .Normal)
+    public func colorOfTitleLabelForNormal(_ color : UIColor) {
+        self.setTitleColor(color, for: UIControlState())
     }
     
     //  Set title color for selected state
-    public func colorOfTitleLabelForSelected(color : UIColor) {
-        self.setTitleColor(color, forState: .Selected)
+    public func colorOfTitleLabelForSelected(_ color : UIColor) {
+        self.setTitleColor(color, for: .selected)
     }
     
     //  Set title color for highkighted state
-    public func colorForHighlighted(color : UIColor) {
-        self.setTitleColor(color, forState: .Highlighted)
+    public func colorForHighlighted(_ color : UIColor) {
+        self.setTitleColor(color, for: .highlighted)
     }
     
     //  Set image behind the text in button
-    public func setImageBehindTextWithCenterAlignment(imageWidth : CGFloat, buttonWidth : CGFloat, space : CGFloat) {
+    public func setImageBehindTextWithCenterAlignment(_ imageWidth : CGFloat, buttonWidth : CGFloat, space : CGFloat) {
         let titleLabelWidth = self.titleLabel?.text?.stringWidth(self.titleLabel!.font)
         let buttonMiddlePoint = buttonWidth/2
         let fullLenght = titleLabelWidth! + space + imageWidth
@@ -111,7 +111,7 @@ extension UIButton {
     }
     
     //  Set image behind text in left alignment
-    public func setImageBehindTextWithLeftAlignment(imageWidth : CGFloat, buttonWidth : CGFloat) {
+    public func setImageBehindTextWithLeftAlignment(_ imageWidth : CGFloat, buttonWidth : CGFloat) {
         let titleLabelWidth = self.titleLabel?.text?.stringWidth(self.titleLabel!.font)
         let fullLenght = titleLabelWidth! + 5 + imageWidth
         
@@ -123,7 +123,7 @@ extension UIButton {
     }
     
     //  Set image behind text in right alignment
-    public func setImageOnRightAndTitleOnLeft(imageWidth : CGFloat, buttonWidth : CGFloat)  {
+    public func setImageOnRightAndTitleOnLeft(_ imageWidth : CGFloat, buttonWidth : CGFloat)  {
         let imageInset = CGFloat(buttonWidth - imageWidth - 10)
         
         let buttonInset = CGFloat(-10.0)
